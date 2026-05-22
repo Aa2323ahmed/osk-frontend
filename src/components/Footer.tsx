@@ -1,6 +1,6 @@
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import whiteLogo from "@/assets/Logo/OSK-primary-logo-1200-400-white.svg";
-
+//import { NavLink } from "react-router";
 import { Mail } from "lucide-react";
 import { FiGithub, FiTwitter, FiLinkedin } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
@@ -103,8 +103,9 @@ const Footer = () => {
             <NavLink to="/" className="inline-block mb-4">
               <img
                 src={whiteLogo}
-                alt="Opeen source kigali logo"
+                alt="Open Source Kigali logo"
                 className=" w-24 md:w-32 "
+// alt="Opeen source kigali logo"
               />
             </NavLink>
             <p className="text-sm leading-relaxed text-gray-500">
@@ -176,6 +177,9 @@ const Footer = () => {
             >
               Code of Conduct
             </a>
+            <NavLink to="/charter" className="hover:text-gray-400 transition">
+              Community Charter
+            </NavLink>
           </div>
         </div>
       </div>
