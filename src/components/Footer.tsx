@@ -1,13 +1,16 @@
 import { NavLink } from "react-router-dom";
 import whiteLogo from "@/assets/Logo/OSK-primary-logo-1200-400-white.svg";
-//import { NavLink } from "react-router";
 import { Mail } from "lucide-react";
 import { FiGithub, FiTwitter, FiLinkedin } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
 interface FooterLinkGroup {
   heading: string;
-  links: { label: string; to: string; external?: boolean }[];
+  links: {
+    label: string;
+    to: string;
+    external?: boolean;
+  }[];
 }
 
 const linkGroups: FooterLinkGroup[] = [
@@ -30,7 +33,6 @@ const linkGroups: FooterLinkGroup[] = [
   {
     heading: "Resources",
     links: [
-      // { label: "Tutorials", to: "/resources" },
       { label: "Blog", to: "/blog" },
       { label: "Events", to: "/events" },
     ],
@@ -81,7 +83,7 @@ const socialLinks = [
   {
     icon: <FaWhatsapp size={18} />,
     href: "https://chat.whatsapp.com/GimdjJcYLyyG62zpgsI0zB",
-    label: "Discord",
+    label: "WhatsApp",
   },
   {
     icon: <Mail size={18} />,
@@ -98,21 +100,23 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-20 py-16">
         {/* Top Row: Brand + Links */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+          
           {/* Brand */}
           <div className="md:col-span-1">
             <NavLink to="/" className="inline-block mb-4">
               <img
                 src={whiteLogo}
                 alt="Open Source Kigali logo"
-                className=" w-24 md:w-32 "
-// alt="Opeen source kigali logo"
+                className="w-24 md:w-32"
               />
             </NavLink>
+
             <p className="text-sm leading-relaxed text-gray-500">
-              Building Rwanda's open source ecosystem — one contribution at a
-              time.
+              Building Rwanda&apos;s open source ecosystem — one contribution at
+              a time.
             </p>
-            {/* Socials */}
+
+            {/* Social Links */}
             <div className="flex items-center gap-3 mt-6">
               {socialLinks.map((s) => (
                 <a
@@ -135,6 +139,7 @@ const Footer = () => {
               <h4 className="text-white font-semibold text-sm mb-4 tracking-wide uppercase">
                 {group.heading}
               </h4>
+
               <ul className="space-y-2.5">
                 {group.links.map((link) => (
                   <li key={link.label}>
@@ -164,11 +169,18 @@ const Footer = () => {
 
         {/* Bottom Row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
-          <p>© {currentYear} Open Source Kigali. All rights reserved.</p>
+          <p>
+            © {currentYear} Open Source Kigali. All rights reserved.
+          </p>
+
           <div className="flex gap-5">
-            <NavLink to="/privacy" className="hover:text-gray-400 transition">
+            <NavLink
+              to="/privacy"
+              className="hover:text-gray-400 transition"
+            >
               Privacy Policy
             </NavLink>
+
             <a
               href="https://docs.google.com/document/d/1K_bIZT09p-8IiPpg1v3RsMD2dZmUzRFWlMp8tfOavcE/edit?usp=sharing"
               target="_blank"
@@ -177,7 +189,11 @@ const Footer = () => {
             >
               Code of Conduct
             </a>
-            <NavLink to="/charter" className="hover:text-gray-400 transition">
+
+            <NavLink
+              to="/charter"
+              className="hover:text-gray-400 transition"
+            >
               Community Charter
             </NavLink>
           </div>
